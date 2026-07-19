@@ -104,7 +104,7 @@ exports.getProfile = async (req, res) => {
 
 exports.getUserOrders = async (req, res) => {
 
-    const orders = await Order.find({ userId: req.user.id });
+    const orders = await Order.find({ userId: req.user.id,  paymentStatus: 'paid' });
 
     res.json({ status: true, message: "Orders fetched successfully", data: orders });
 
@@ -208,4 +208,4 @@ exports.checkAuth = async (req, res) => {
         // If JWT verify fails (expired/invalid), still return status true but isLoggedIn false
         res.json({ status: true, isLoggedIn: false, data: null });
     }
-};
+};
