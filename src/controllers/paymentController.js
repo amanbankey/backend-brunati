@@ -71,7 +71,8 @@ exports.createOrder = async (req, res) => {
       freeSample,
       customer,
       totalAmount: amount,
-      paymentStatus: "pending"
+      paymentStatus: "pending",
+      paymentMethod: "online"
     });
     
     const savedOrder = await newOrder.save();

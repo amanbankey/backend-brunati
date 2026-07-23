@@ -6,7 +6,7 @@ exports.createOrder = async (req, res) => {
     try {
 
 
-        const { items, sampleId, shippingAddress } = req.body;
+        const { items, sampleId, shippingAddress, paymentMethod } = req.body;
 
         if (shippingAddress) {
             // Check if this address already exists structurally
@@ -105,7 +105,8 @@ exports.createOrder = async (req, res) => {
             customer,
             items: orderItems,
             freeSample,
-            totalAmount: total
+            totalAmount: total,
+            paymentMethod: paymentMethod || "COD"
         });
 
         // ✅ Email: Order Placed (Awaited for Vercel/Reliability)
