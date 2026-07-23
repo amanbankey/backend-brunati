@@ -104,7 +104,13 @@ exports.getProfile = async (req, res) => {
 
 exports.getUserOrders = async (req, res) => {
 
-    const orders = await Order.find({ userId: req.user.id,  paymentStatus: 'paid' });
+    const orders = await Order.find({ 
+        userId: req.user.id,  
+        $or: [
+            { paymentStatus: 'paid' },
+            { paymentMethod: 'COD' }
+        ]
+    });
 
     res.json({ status: true, message: "Orders fetched successfully", data: orders });
 
