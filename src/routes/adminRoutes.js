@@ -17,6 +17,7 @@ const adminAuthController = require("../controllers/admin/adminAuthController");
 const adminTrendController = require("../controllers/admin/adminTrendController");
 const adminInfluencerController = require("../controllers/admin/adminInfluencerController");
 const adminTestimonialController = require("../controllers/admin/adminTestimonialController");
+const adminPolicyController = require("../controllers/admin/adminPolicyController");
 
 
 /* ─── PUBLIC: Auth (no token required) ─── */
@@ -101,6 +102,12 @@ router.get("/banners", adminBannerController.getAllBanners);
 /* SETTINGS */
 
 router.put("/settings/free-samples", adminSettingsController.updateFreeSampleSettings);
+
+/* POLICY MANAGEMENT */
+router.get("/policies", adminPolicyController.getAllPolicies);
+router.post("/policies", adminPolicyController.createPolicy);
+router.put("/policies/:id", adminPolicyController.updatePolicy);
+router.delete("/policies/:id", adminPolicyController.deletePolicy);
 
 module.exports = router;
 

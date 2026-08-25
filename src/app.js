@@ -74,6 +74,7 @@ app.use("/api/v1/testimonials", require("./routes/testimonialRoutes"));
 app.use("/api/v1/influencers", require("./routes/influencerRoutes"));
 app.use("/api/v1/trends", require("./routes/trendRoutes"));
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
+app.use("/api/v1/policies", require("./routes/policyRoutes"));
 
 app.use("/api/v1/payment", paymentRoute);
 
