@@ -12,7 +12,7 @@ const connectDB = async () => {
         return;
     }
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI);
+        const conn = await mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/brunati");
         isConnected = true;
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch(err) {
